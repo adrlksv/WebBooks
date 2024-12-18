@@ -1,0 +1,7 @@
+venv/
+.env
+src/__pycache__/
+src/books/__pycache__/
+src/migrations/__pycache__/
+src/reviews/__pycache__/
+src/users/__pycache__/
