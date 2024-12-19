@@ -11,3 +11,6 @@ class Books(Base):
     author = Column(String(100))
     description = Column(String)
     link = Column(String(50))
+
+    class Config:
+        orm_mode = True

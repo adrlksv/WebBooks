@@ -19,3 +19,6 @@ class Users(Base):
     email = Column(String(100), unique=True, index=True)
     hashed_password = Column(String)
     role = Column(Enum(UserRole), default=UserRole.user.value)
+
+    class Config:
+        orm_mode = True

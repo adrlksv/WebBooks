@@ -31,3 +31,15 @@ class UserAlreadyExistsException(BaseException):
 class IncorrectEmailOrPasswordException(BaseException):
     status_code = status.HTTP_401_UNAUTHORIZED
     detail = "Incorrect email or password"
+
+class BookNotFoundException(BaseException):
+    status_code = status.HTTP_404_NOT_FOUND
+    detail = "Book not found"
+
+class FileNotFoundException(BaseException):
+    status_code = status.HTTP_404_NOT_FOUND
+    detail = "File not found"
+
+class BookUploadException(BaseException):
+    status_code = status.HTTP_409_CONFLICT
+    detail = "Book upload error"

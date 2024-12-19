@@ -14,3 +14,6 @@ class Reviews(Base):
     rating = Column(Integer)
     review_text = Column(String)
     created_at = Column(DateTime, default=datetime.utcnow)
+
+    class Config:
+        orm_mode = True
