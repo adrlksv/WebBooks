@@ -51,3 +51,19 @@ class NoDataToUpdateException(BaseException):
 class InternalServerErrorException(BaseException):
     status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
     detail = "Internal server error"
+
+class ReviewCreateFailedException(BaseException):
+    status_code = status.HTTP_409_CONFLICT
+    detail = "Review create failed"
+
+class ReviewGetException(BaseException):
+    status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
+    detail = "Failed to get review"
+
+class ReviewNotFoundException(BaseException):
+    status_code = status.HTTP_404_NOT_FOUND
+    detail = "Review not found"
+
+class NotAbleToUpdateException(BaseException):
+    status_code = status.HTTP_409_CONFLICT
+    detail = "You are not able to update this review"
