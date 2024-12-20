@@ -43,3 +43,11 @@ class FileNotFoundException(BaseException):
 class BookUploadException(BaseException):
     status_code = status.HTTP_409_CONFLICT
     detail = "Book upload error"
+
+class NoDataToUpdateException(BaseException):
+    status_code = status.HTTP_400_BAD_REQUEST
+    detail = "No data to update"
+
+class InternalServerErrorException(BaseException):
+    status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
+    detail = "Internal server error"

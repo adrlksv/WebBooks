@@ -107,10 +107,18 @@ class BooksDAO(BaseDAO):
     async def update_book(
         cls,
         book_id: int,
-        **data,  
+        title = Form(...),
+        author = Form(...),
+        description = Form(...)
     ):
         async with async_session_maker() as session:
-            query = update(Books).where(Books.id == book_id).values(**data)
+            current_book = select(Books).where(Books.id == book_id)
+
+            query = update(Books).where(Books.id == book_id).values(
+                title = title if title else current_book.title,
+                author = author if author else current_book.author,
+                description = description if description else current_book.description
+            )
             book = await session.execute(query)
             await session.commit()
 
